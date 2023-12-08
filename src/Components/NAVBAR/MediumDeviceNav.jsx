@@ -12,7 +12,7 @@ import { CgProfile } from "react-icons/cg";
 
 import "./nav.css";
 import ToogleDarkLight from "../DarkLightmode/ToogleDarkLight";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OutsideClickHandler from "react-outside-click-handler";
 const MediumDeviceNav = () => {
   const navlink = [
@@ -49,7 +49,7 @@ const MediumDeviceNav = () => {
     },
   ];
   const [navOpen, setNavOpen] = useState(false);
-  console.log(navOpen);
+
   return (
     <nav className="top-[69px] sticky z-10 lg:hidden">
       <OutsideClickHandler
@@ -109,12 +109,8 @@ const MediumDeviceNav = () => {
             <NavLink
               exact={path === "/"}
               activeClassName={`font-bold  dark:opacity-100 
-               bg-clip-text ${localStorage.getItem(
-                 "theme" === "dark"
-                   ? "text-transparent bg-gradient-to-r from-purpleLightC to-gray-600 "
-                   : "text-purpleLightC"
-               )}  opacity-100`}
-              className="flex text-grayC dark:opacity-40 opacity-60 justify-star px-5 dark:text-white text-2xl items-center gap-x-2"
+                  text-purpleLightC opacity-100`}
+              className="flex text-grayC  opacity-60 justify-star px-5  text-2xl items-center gap-x-2"
               href={path}
             >
               {title === "Home" && <RiHomeLine />}
